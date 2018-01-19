@@ -1,4 +1,4 @@
-FROM php:5.6-fpm
+FROM php:7.2-fpm
 
 # Install Curl & GIT
 RUN apt-get update && apt-get install -y curl git zip
@@ -19,11 +19,7 @@ RUN docker-php-ext-install json
 # Install mbstring
 RUN docker-php-ext-install mbstring
 
-# Install mcrypt
-RUN apt-get update && apt-get install -y libmcrypt-dev
-RUN docker-php-ext-install mcrypt
-
-# Install PDO
+# Install PDO MySQL
 RUN docker-php-ext-install pdo_mysql
 
 # Install intl
