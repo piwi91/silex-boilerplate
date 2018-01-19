@@ -8,13 +8,15 @@ services:
       - ./:/var/www
 
   nginx:
-    build: docker/nginx
+    image: nginx
     ports:
       - "8080:80"
     depends_on:
       - application
     networks:
       - app_net
+    volumes:
+      - ./docker/nginx/symfony3.conf:/etc/nginx/conf.d/default.conf:ro
     volumes_from:
       - application
 
